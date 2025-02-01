@@ -45,6 +45,7 @@ app.get("/userComments", async (req, res) => {
   res.json(result.rows);
 });
 
+// ---------------------------------
 //creating routes to insert data
 
 // novels
@@ -66,6 +67,7 @@ app.post("/noveldata", async (req, res) => {
     newData: query.rows[0],
   });
 });
+
 // userComments
 app.post("/commentdata", async (req, res) => {
   console.log("This is the user comments data", req.body);
@@ -84,4 +86,26 @@ app.post("/commentdata", async (req, res) => {
     message: "user comment inserted successfully!",
     newData: query.rows[0],
   });
+});
+
+// --------------------------------
+//creating routes to update data
+
+//updating user comment
+app.put("/update-comment/:id", async (req, res) => {
+  const updateData = req.body;
+
+  const paramsToUpdateComment = req.params;
+
+  const query = await db.query(
+    `UPDATE userComments SET username= $1, email= $2, comment= $3, booksId= $4 WHERE id= $5`,
+    [
+      updateData.username,
+      updateData.email,
+      updateData.comment,
+      updateData.booksId,
+      paramsToUpdateComment.id,
+    ]
+  );
+  res.json({ message: "user comment data updates!!!" });
 });
