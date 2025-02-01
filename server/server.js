@@ -92,7 +92,7 @@ app.post("/commentdata", async (req, res) => {
 // --------------------------------
 //creating routes to update data
 
-//updating user comment
+//updating user comments
 app.put("/update-comment/:id", async (req, res) => {
   const updateData = req.body;
 
