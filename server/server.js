@@ -95,7 +95,7 @@ app.post("/commentdata", async (req, res) => {
 app.put("/update-comment/:id", async (req, res) => {
   const updateData = req.body;
 
-  const paramsToUpdateComment = req.params;
+  const paramsToUpdateuserComments = req.params;
 
   const query = await db.query(
     `UPDATE userComments SET username= $1, email= $2, comment= $3, booksId= $4 WHERE id= $5`,
@@ -104,8 +104,23 @@ app.put("/update-comment/:id", async (req, res) => {
       updateData.email,
       updateData.comment,
       updateData.booksId,
-      paramsToUpdateComment.id,
+      paramsToUpdateuserComments.id,
     ]
   );
   res.json({ message: "user comment data updates!!!" });
+});
+
+// --------------------------------
+//creating routes to delete data
+
+//deleting user comment
+app.delete("/delete-comment/:id", (req, res) => {
+  const paramsToDeleteuserComments = req.params;
+
+  const query = db.query(`DELETE FROM userComments WHERE id= $1`, [
+    paramsToDeleteuserComments.id,
+  ]);
+  res.json({
+    message: "You have performed a destructive operation!!!",
+  });
 });
