@@ -70,19 +70,22 @@ app.post("/noveldata", async (req, res) => {
 app.post("/commentdata", async (req, res) => {
   console.log("This is the user comments data", req.body);
 
-  const { formValues } = req.body;
-
-  const { username, email, comment, booksId } = formValues;
+  const newUserComment = req.body;
 
   const query = await db.query(
     `INSERT INTO userComments(username,email,comment,booksId)
            VALUES ($1, $2, $3,$4) RETURNING *`,
-    [username, email, comment, booksId]
+    [
+      newUserComment.username,
+      newUserComment.email,
+      newUserComment.comment,
+      newUserComment.booksId,
+    ]
   );
 
   res.json({
     message: "user comment inserted successfully!",
-    newData: query.rows[0],
+    newUserComment: query.rows[0],
   });
 });
 
