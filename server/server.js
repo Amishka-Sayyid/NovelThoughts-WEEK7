@@ -44,3 +44,44 @@ app.get("/userComments", async (req, res) => {
   const result = await db.query("SELECT * FROM userComments");
   res.json(result.rows);
 });
+
+//creating routes to insert data
+
+// novels
+app.post("/noveldata", async (req, res) => {
+  console.log("This is the novel data", req.body);
+
+  const { formValues } = req.body;
+
+  const { src, title, author, synopsis } = formValues;
+
+  const query = await db.query(
+    `INSERT INTO novels(src,title,author,synopsis) 
+         VALUES ($1, $2, $3,$4) RETURNING *`,
+    [src, title, author, synopsis]
+  );
+
+  res.json({
+    message: "novel data inserted successfully!",
+    newData: query.rows[0],
+  });
+});
+// userComments
+app.post("/commentdata", async (req, res) => {
+  console.log("This is the user comments data", req.body);
+
+  const { formValues } = req.body;
+
+  const { username, email, comment, booksId } = formValues;
+
+  const query = await db.query(
+    `INSERT INTO userComments(username,email,comment,booksId)
+           VALUES ($1, $2, $3,$4) RETURNING *`,
+    [username, email, comment, booksId]
+  );
+
+  res.json({
+    message: "user comment inserted successfully!",
+    newData: query.rows[0],
+  });
+});
