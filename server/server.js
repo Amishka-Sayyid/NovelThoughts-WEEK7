@@ -56,7 +56,7 @@ app.post("/noveldata", async (req, res) => {
 
   const query = await db.query(
     `INSERT INTO novels(src,title,author,synopsis) 
-         VALUES ($1, $2, $3,$4) `,
+         VALUES ($1, $2, $3,$4) RETURNING * `,
     [newData.src, newData.title, newData.author, newData.synopsis]
   );
 
