@@ -52,14 +52,12 @@ app.get("/userComments", async (req, res) => {
 app.post("/noveldata", async (req, res) => {
   console.log("This is the novel data", req.body);
 
-  const { formValues } = req.body;
-
-  const { src, title, author, synopsis } = formValues;
+  const newData = req.body;
 
   const query = await db.query(
     `INSERT INTO novels(src,title,author,synopsis) 
-         VALUES ($1, $2, $3,$4) RETURNING *`,
-    [src, title, author, synopsis]
+         VALUES ($1, $2, $3,$4) `,
+    [newData.src, newData.title, newData.author, newData.synopsis]
   );
 
   res.json({
@@ -114,10 +112,10 @@ app.put("/update-comment/:id", async (req, res) => {
 //creating routes to delete data
 
 //deleting user comment
-app.delete("/delete-comment/:id", (req, res) => {
+app.delete("/delete-comment/:id", async (req, res) => {
   const paramsToDeleteuserComments = req.params;
 
-  const query = db.query(`DELETE FROM userComments WHERE id= $1`, [
+  const query = await db.query(`DELETE FROM userComments WHERE id= $1`, [
     paramsToDeleteuserComments.id,
   ]);
   res.json({
