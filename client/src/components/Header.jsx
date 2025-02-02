@@ -1,5 +1,5 @@
 import "./Section.css";
-
+import "./media.css";
 export default function Header() {
   return (
     <>

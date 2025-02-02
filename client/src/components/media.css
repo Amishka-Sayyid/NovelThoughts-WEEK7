@@ -1,0 +1,39 @@
+@media (max-width: 768px) {
+  .MainSection {
+    min-height: 40vh;
+  }
+  .MainSection nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  .MainSection div {
+    font-size: 1.5rem;
+  }
+  .MainSection button {
+    padding: 0.7em 0.9em;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .MainSection {
+    min-height: 40vh;
+  }
+  .MainSection div {
+    font-size: 1.3rem;
+  }
+  .MainSection nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .MainSection button {
+    padding: 0.7em 0.9em;
+    font-size: 0.7rem;
+  }
+}

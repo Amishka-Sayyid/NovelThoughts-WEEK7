@@ -1,4 +1,5 @@
 import "./Section.css";
+import "./media.css";
 export default function Footer() {
   return (
     <>

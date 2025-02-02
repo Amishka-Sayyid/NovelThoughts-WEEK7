@@ -1,32 +1,87 @@
 /* HEADER AREA */
 @import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
-@import url("https://fonts.googleapis.com/css2?family=Quintessential&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Quintessential&display=swap");
 
 .header {
   text-align: center;
   background-color: #ddccc2;
   font-size: clamp(2rem, 4vw, 5rem);
   font-family: "Quintessential", serif;
-  font-weight: 600;
+  font-style: italic;
+  font-weight: 800;
   color: rgb(67, 64, 64);
 }
 
 /* SECTION AREA  */
 /* center is the whole area  */
 .center {
-  flex: 1;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 40px;
   background-color: #fdf7f1;
+  min-height: 30vh;
 }
 /* mainsection is the title and link area */
 .MainSection {
   text-align: center;
-  padding: 20px;
+  padding: 40px;
+  background-image: url("https://www.bu.edu/files/2022/02/books-for-valentines-day.jpg");
+  min-height: 30vh;
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.MainSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(56, 56, 56, 0.5);
+  border-radius: 1rem;
+  z-index: -1;
+}
+
+.MainSection div {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 2.2rem;
+}
+.MainSection nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.MainSection button {
+  padding: 0.6em 1.7em;
+  font-size: 1.2rem;
 }
 /* this is the dynamic content area */
 .linkViewSection {
-  padding: 20px;
+  padding: 40px;
   min-height: 50vh;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  background-color: #e9e9e9;
 }
 
 /* FOOTER AREA */
