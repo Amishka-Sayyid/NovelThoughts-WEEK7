@@ -1,4 +1,5 @@
 import "./Section.css";
+import "./media.css";
 import { Routes, Route, Link } from "react-router-dom";
 import About from "./About";
 import Books from "./Books";
