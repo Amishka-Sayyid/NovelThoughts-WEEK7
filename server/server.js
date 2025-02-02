@@ -45,6 +45,12 @@ app.get("/userComments", async (req, res) => {
   res.json(result.rows);
 });
 
+app.get("/novels/:id", async (req, res) => {
+  const bookId = req.params.id;
+  const result = await db.query("SELECT * FROM novels WHERE id=$1", [bookId]);
+  res.json(result.rows);
+});
+
 // ---------------------------------
 //creating routes to insert data
 
