@@ -12,7 +12,7 @@ export default function AllBooks() {
     event.preventDefault();
     console.log("The form values are", newData);
 
-    fetch("http://localhost:8080/noveldata", {
+    fetch("https://novelatticserver.onrender.com/noveldata", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,7 +33,9 @@ export default function AllBooks() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("http://localhost:8080/novels");
+        const response = await fetch(
+          "https://novelatticserver.onrender.com/novels"
+        );
         const data = await response.json();
         console.log("data fetched successfully!");
 
