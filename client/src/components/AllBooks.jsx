@@ -1,6 +1,6 @@
 import "./Books.css";
-import { useState } from "react";
 
+import { useState, useEffect } from "react";
 export default function AllBooks() {
   const [newData, setnewData] = useState({
     src: "",
@@ -29,9 +29,25 @@ export default function AllBooks() {
     });
   }
 
+  const [books, setbooks] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch("http://localhost:8080/novels");
+        const data = await response.json();
+        console.log("data fetched successfully!");
+
+        setbooks(data);
+      } catch {
+        console.log(" Failed to fetch items!");
+      }
+    }
+    fetchData();
+  }, []);
+
   return (
     <>
-      <section>
+      <section className="section">
         <h2>ADD BOOK</h2>
         <div className="bookform">
           <form onSubmit={handleSubmit}>
@@ -82,6 +98,24 @@ export default function AllBooks() {
             />
             <button type="submit">Submit</button>
           </form>
+        </div>
+
+        <div className="books">
+          <h2>ALL NOVELS</h2>
+
+          <div className="Allbooks">
+            {books.length === 0 ? (
+              <p>loading data ...</p>
+            ) : (
+              books.map((book) => (
+                <div key={book.id} className="singleBook">
+                  <img src={`${book.src}`} alt={book.title} />
+
+                  <h4>{book.title}</h4>
+                </div>
+              ))
+            )}
+          </div>
         </div>
       </section>
     </>
