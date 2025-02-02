@@ -1,13 +1,15 @@
 import "./App.css";
-
-//The App component is the parent of your other components
-
-//Here you should set up your routes
+import Header from "./components/Header";
+import Section from "./components/Section";
+import Footer from "./components/Footer";
 export default function App() {
   return (
     <>
-      <h1>App</h1>
-      {/* Routes go here! */}
+      <div>
+        <Header />
+        <Section />
+        <Footer />
+      </div>
     </>
   );
 }
