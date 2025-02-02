@@ -9,7 +9,7 @@ export default function Books() {
         <div className="ViewSection">
           <Routes>
             <Route path="/" element={<AllBooks />} />
-            <Route path=":bookId" element={<BookDetails />} />
+            <Route path="/book/:bookId" element={<BookDetails />} />
           </Routes>
         </div>
         <nav className="BookNavLinks">

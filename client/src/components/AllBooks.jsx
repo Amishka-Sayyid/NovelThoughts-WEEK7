@@ -1,4 +1,5 @@
 import "./Books.css";
+import { Link } from "react-router-dom";
 
 import { useState, useEffect } from "react";
 export default function AllBooks() {
@@ -33,7 +34,9 @@ export default function AllBooks() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("http://localhost:8080/novels");
+        const response = await fetch(
+          "https://novelatticserver.onrender.com/novels"
+        );
         const data = await response.json();
         console.log("data fetched successfully!");
 
@@ -111,7 +114,9 @@ export default function AllBooks() {
                 <div key={book.id} className="singleBook">
                   <img src={`${book.src}`} alt={book.title} />
 
-                  <h4>{book.title}</h4>
+                  <Link to={`/book/${book.id}`}>
+                    <h4>{book.title}</h4>
+                  </Link>
                 </div>
               ))
             )}
