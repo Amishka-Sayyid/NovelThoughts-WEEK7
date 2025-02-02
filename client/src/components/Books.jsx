@@ -1,9 +1,23 @@
+import { Routes, Route, Link } from "react-router-dom";
+import AllBooks from "./AllBooks";
+import BookDetails from "./BookDetails";
 export default function Books() {
   return (
     <>
-      <div>
-        <h1>books part</h1>
-      </div>
+      <section>
+        {/* dynamic content area to display all books */}
+        <div className="ViewSection">
+          <Routes>
+            <Route path="/" element={<AllBooks />} />
+            <Route path=":bookId" element={<BookDetails />} />
+          </Routes>
+        </div>
+        <nav className="BookNavLinks">
+          <Link to="/book">
+            <button>All Books</button>
+          </Link>
+        </nav>
+      </section>
     </>
   );
 }
