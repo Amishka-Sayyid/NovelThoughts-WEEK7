@@ -20,17 +20,7 @@
   display: block;
   object-fit: cover;
 }
-.AboutImg img::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(56, 56, 56, 0.5);
-  border-radius: 1rem;
-  z-index: -1;
-}
+
 .AboutText {
   max-width: 50%;
   height: 100%;
@@ -89,7 +79,7 @@
     font-size: clamp(1rem, 3vw, 1.5rem);
   }
   .AboutText button {
-    padding: 0.7em 0.9em;
+    padding: 0.4em 0.7em;
     font-size: 1rem;
   }
 }
