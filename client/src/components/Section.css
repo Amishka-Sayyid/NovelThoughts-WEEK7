@@ -1,0 +1,61 @@
+/* HEADER AREA */
+@import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Quintessential&display=swap");
+
+.header {
+  text-align: center;
+  background-color: #ddccc2;
+  font-size: clamp(2rem, 4vw, 5rem);
+  font-family: "Quintessential", serif;
+  font-weight: 600;
+  color: rgb(67, 64, 64);
+}
+
+/* SECTION AREA  */
+/* center is the whole area  */
+.center {
+  flex: 1;
+  padding: 20px;
+  background-color: #fdf7f1;
+}
+/* mainsection is the title and link area */
+.MainSection {
+  text-align: center;
+  padding: 20px;
+}
+/* this is the dynamic content area */
+.linkViewSection {
+  padding: 20px;
+  min-height: 50vh;
+}
+
+/* FOOTER AREA */
+.footer {
+  bottom: 0;
+  background-color: #ddccc2;
+  color: rgb(67, 64, 64);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 4px;
+}
+.footer h1 {
+  font-size: 1.5rem;
+  color: rgb(67, 64, 64);
+}
+.sociallinks {
+  display: flex;
+  gap: 1rem;
+}
+.sociallinks a {
+  text-decoration: none;
+  color: #edefef;
+  font-size: 2rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.sociallinks a:hover {
+  color: rgb(128, 125, 120);
+  transform: scale(1.3);
+}

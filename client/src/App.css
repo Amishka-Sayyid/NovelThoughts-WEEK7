@@ -1,3 +1,20 @@
+@import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Quintessential&display=swap");
+
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  height: 100%;
+}
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -6,11 +23,13 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: #edefef;
+
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: white;
+  background-color: #f3e7e7;
 }
 button:focus,
 button:focus-visible {
