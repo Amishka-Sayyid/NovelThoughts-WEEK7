@@ -15,6 +15,23 @@
     padding: 0.7em 0.9em;
     font-size: 1rem;
   }
+  button {
+    padding: 0.7em 0.9em;
+    font-size: 1rem;
+  }
+  .About {
+    flex-direction: column;
+  }
+  .AboutImg {
+    width: 100%;
+    height: 100%;
+    flex: 1;
+  }
+  .AboutText {
+    width: 100%;
+    height: 100%;
+    font-size: 1.3rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -35,5 +52,24 @@
   .MainSection button {
     padding: 0.7em 0.9em;
     font-size: 0.7rem;
+  }
+  .About {
+    flex-direction: column;
+    margin: auto;
+    max-width: 100%;
+  }
+  .AboutImg {
+    width: 100%;
+    height: 100%;
+    flex: 1;
+  }
+  .AboutText {
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+  }
+  button {
+    padding: 0.7em 0.9em;
+    font-size: 1rem;
   }
 }
