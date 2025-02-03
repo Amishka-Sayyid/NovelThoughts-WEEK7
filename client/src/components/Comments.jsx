@@ -20,6 +20,7 @@ export default function Comments() {
       },
       body: JSON.stringify(newUserComment),
     });
+    alert("comment added successfully");
     console.log(newUserComment);
   }
 

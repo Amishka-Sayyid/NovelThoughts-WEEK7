@@ -129,3 +129,13 @@ app.delete("/delete-comment/:id", async (req, res) => {
     message: "You have performed a destructive operation!!!",
   });
 });
+
+// deleting book
+app.delete("/delete-book/:id", async (req, res) => {
+  const { id } = req.params;
+
+  const query = await db.query(`DELETE FROM novels WHERE id = $1`, [id]);
+  res.json({
+    message: "You have performed a destructive operation!!!",
+  });
+});
