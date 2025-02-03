@@ -114,9 +114,11 @@ export default function AllBooks() {
                 <div key={book.id} className="singleBook">
                   <img src={`${book.src}`} alt={book.title} />
 
-                  <Link to={`/book/${book.id}`}>
+                  {/* <Link to={`/book/${book.id}`}>
                     <h4>{book.title}</h4>
-                  </Link>
+                  </Link> */}
+                  <h4>{book.title}</h4>
+                  <h5>book Id:{book.id} </h5>
                 </div>
               ))
             )}
