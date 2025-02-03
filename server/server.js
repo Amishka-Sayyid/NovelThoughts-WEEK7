@@ -122,11 +122,9 @@ app.put("/update-comment/:id", async (req, res) => {
 
 //deleting user comment
 app.delete("/delete-comment/:id", async (req, res) => {
-  const paramsToDeleteuserComments = req.params;
+  const { id } = req.params;
 
-  const query = await db.query(`DELETE FROM userComments WHERE id= $1`, [
-    paramsToDeleteuserComments.id,
-  ]);
+  const query = await db.query(`DELETE FROM userComments WHERE id = $1`, [id]);
   res.json({
     message: "You have performed a destructive operation!!!",
   });

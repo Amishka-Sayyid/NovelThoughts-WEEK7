@@ -1,5 +1,5 @@
-.book-details {
+.bookdetailpage {
   display: flex;
   flex-direction: column;
-  min-height: 40vh;
+  font-size: 3rem;
 }

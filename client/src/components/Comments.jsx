@@ -48,6 +48,21 @@ export default function Comments() {
     fetchData();
   }, []);
 
+  async function handleDelete(id) {
+    const response = await fetch(
+      `https://novelatticserver.onrender.com/delete-comment/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
+    if (response.ok) {
+      setcomments(comments.filter((comment) => comment.id !== id));
+      alert("Comment deleted successfully");
+    } else {
+      alert("Failed to delete comment");
+    }
+  }
+
   return (
     <>
       <section className="section">
@@ -110,6 +125,9 @@ export default function Comments() {
                 <h5>book Id:{comment.booksid}</h5>
                 {/* <h6>{comment.email}</h6> */}
                 <p>"{comment.comment}"</p>
+
+                {/* adding delete button to each */}
+                <button onClick={() => handleDelete(comment.id)}>Delete</button>
               </div>
             ))
           )}
