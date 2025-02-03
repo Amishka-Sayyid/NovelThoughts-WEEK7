@@ -114,3 +114,23 @@
   color: rgb(128, 125, 120);
   transform: scale(1.3);
 }
+
+.gotopbtn {
+  font-size: 1.3rem;
+  color: rgb(155, 30, 128);
+  border: 1px solid #f38fe4;
+  padding: 1rem;
+  border-radius: 4rem;
+  margin: auto;
+  position: fixed;
+  right: 20px;
+  bottom: 2rem;
+  z-index: 2;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+.gotopbtn:hover {
+  background-color: #eccce7;
+  transform: scale(1.1);
+}
