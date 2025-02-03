@@ -1,32 +1,32 @@
 import { useParams } from "react-router-dom";
 import "./BookDetails.css";
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "./Books.css";
 
 export default function BookDetails() {
-  const { bookId } = useParams();
+  let { bookId } = useParams();
 
-  const [singleBook, setsingleBook] = useState(null);
-
-  useEffect(() => {
-    async function fetchBookDetails() {
-      const response = await fetch(
-        `https://novelatticserver.onrender.com/novels/${bookId}`
-      );
-      const bookData = await response.json();
-      setsingleBook(bookData);
-    }
-    fetchBookDetails();
-  }, [bookId]);
-
+  console.log("Book ID from URL:", bookId);
   return (
     <>
-      <h2>book id number {bookId}</h2>
+      <div className="bookdetailpage">
+        <h1>Hello suprise!!!</h1>
 
-      <div className="book-details">
-        <h2>{singleBook.title}</h2>
-        <h4>{singleBook.author}</h4>
-        <img src={singleBook.src} alt={singleBook.title} />
-        <p>{singleBook.synopsis}</p>
+        <h2>book clicked id number {bookId}</h2>
+
+        <div className="BookNavLinks">
+          <Link to="/">
+            <button>About</button>
+          </Link>
+
+          <Link to="/book">
+            <button>Books</button>
+          </Link>
+
+          <Link to="/contact">
+            <button>Contact</button>
+          </Link>
+        </div>
       </div>
     </>
   );

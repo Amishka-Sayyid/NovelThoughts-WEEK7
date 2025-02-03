@@ -1,6 +1,5 @@
 import { Routes, Route, Link } from "react-router-dom";
 import AllBooks from "./AllBooks";
-// import BookDetails from "./BookDetails";
 import Comments from "./Comments";
 import "./Books.css";
 export default function Books() {
@@ -11,8 +10,8 @@ export default function Books() {
         <div className="ViewSection">
           <Routes>
             <Route path="/" element={<AllBooks />} />
-            {/* <Route path="/book/:bookId" element={<BookDetails />} /> */}
           </Routes>
+
           <Comments />
         </div>
         <div className="BookNavLinks">
