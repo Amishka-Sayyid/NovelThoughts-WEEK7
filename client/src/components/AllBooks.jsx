@@ -122,6 +122,8 @@ export default function AllBooks() {
             )}
           </div>
         </div>
+
+        <div className="comments"></div>
       </section>
     </>
   );
