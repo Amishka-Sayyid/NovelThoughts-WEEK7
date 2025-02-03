@@ -35,6 +35,9 @@
 }
 
 @media (max-width: 480px) {
+  .center {
+    padding: 14px;
+  }
   .MainSection {
     min-height: 40vh;
   }
