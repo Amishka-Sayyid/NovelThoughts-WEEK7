@@ -1,0 +1,93 @@
+.section h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.bookform {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.bookform form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Added gap between form elements */
+}
+
+.bookform input,
+.bookform textarea {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  margin-bottom: 1rem; /* Added bottom margin to create space below inputs */
+}
+
+.bookform textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.bookform button {
+  background-color: #5c67f2;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.bookform button:hover {
+  background-color: #474ec4;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .bookform {
+    padding: 1.5rem;
+  }
+
+  .bookform input,
+  .bookform textarea {
+    font-size: 0.95rem;
+    padding: 0.65rem 0.9rem;
+  }
+
+  .bookform button {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section h2 {
+    font-size: 1.2rem;
+  }
+
+  .bookform {
+    padding: 1rem;
+  }
+
+  .bookform input,
+  .bookform textarea {
+    font-size: 0.85rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .bookform button {
+    font-size: 0.9rem;
+    padding: 0.65rem;
+  }
+}

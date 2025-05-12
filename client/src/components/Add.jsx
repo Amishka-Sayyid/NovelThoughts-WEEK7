@@ -45,47 +45,46 @@ export default function Add() {
   return (
     <section className="section">
       <h2>ADD BOOK</h2>
-      <div className="bookform">
-        <form onSubmit={handleSubmit}>
-          <label>Book Title:</label>
-          <input
-            type="text"
-            name="title"
-            placeholder="Book title"
-            value={newData.title}
-            onChange={handleInputChange}
-            required
-          />
-          <label>Author:</label>
-          <input
-            type="text"
-            name="author"
-            placeholder="Author"
-            value={newData.author}
-            onChange={handleInputChange}
-            required
-          />
-          <label>Image URL:</label>
-          <input
-            type="text"
-            name="src"
-            placeholder="Image URL"
-            value={newData.src}
-            onChange={handleInputChange}
-            required
-          />
-          <label>Synopsis:</label>
-          <input
-            type="text"
-            name="synopsis"
-            placeholder="Synopsis"
-            value={newData.synopsis}
-            onChange={handleInputChange}
-            required
-          />
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+
+      <form onSubmit={handleSubmit} className="bookform">
+        <label>Book Title:</label>
+        <input
+          type="text"
+          name="title"
+          placeholder="Book title"
+          value={newData.title}
+          onChange={handleInputChange}
+          required
+        />
+        <label>Author:</label>
+        <input
+          type="text"
+          name="author"
+          placeholder="Author"
+          value={newData.author}
+          onChange={handleInputChange}
+          required
+        />
+        <label>Image URL:</label>
+        <input
+          type="text"
+          name="src"
+          placeholder="Image URL"
+          value={newData.src}
+          onChange={handleInputChange}
+          required
+        />
+        <label>Synopsis:</label>
+        <textarea
+          type="text"
+          name="synopsis"
+          placeholder="Synopsis"
+          value={newData.synopsis}
+          onChange={handleInputChange}
+          required
+        />
+        <button type="submit">Submit</button>
+      </form>
     </section>
   );
 }
