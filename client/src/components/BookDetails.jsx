@@ -3,9 +3,12 @@ import "./BookDetails.css";
 import { Link } from "react-router-dom";
 import "./Books.css";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function BookDetails() {
   let { bookId } = useParams();
+
+  const navigate = useNavigate();
 
   let [singleBook, setsingleBook] = useState(null);
   useEffect(() => {
@@ -32,12 +35,13 @@ export default function BookDetails() {
       }
     );
     if (response.ok) {
-      setbooks(books.filter((book) => book.id !== id));
-      alert("novel deleted successfully");
+      alert("Novel deleted successfully");
+      navigate("/book"); // ✅ Redirect
     } else {
       alert("Failed to delete novel");
     }
   }
+
   console.log("Book ID from URL:", bookId);
   console.log(singleBook);
   return (
