@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Books.css";
 import { useState, useEffect } from "react";
+import "./AllBooks.css";
 
 export default function AllBooks() {
   const [books, setbooks] = useState([]);
@@ -35,7 +36,7 @@ export default function AllBooks() {
             <div key={book.id} className="singleBook">
               <img src={book.src} alt={book.title} />
               <Link to={`/book/${book.id}`}>
-                <h4>{book.title}</h4>
+                <h2>{book.title}</h2>
               </Link>
               <h5>Book ID: {book.id}</h5>
             </div>

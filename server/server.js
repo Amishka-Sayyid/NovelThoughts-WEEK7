@@ -122,8 +122,6 @@ app.put("/update-book/:id", async (req, res) => {
   const updateData = req.body;
   const { id } = req.params;
 
-  console.log("Updating book with ID:", id);
-  console.log("Received update data:", updateData);
   try {
     const query = await db.query(
       `UPDATE novels SET title = $1, author = $2, synopsis = $3, src = $4 WHERE id = $5`,
