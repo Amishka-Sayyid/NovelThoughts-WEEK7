@@ -1,29 +1,33 @@
-import { useParams } from "react-router-dom";
-import "./BookDetails.css";
-import { Link } from "react-router-dom";
-import "./Books.css";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import "./BookDetails.css";
+import "./Books.css";
+import "./form.css";
 
 export default function BookDetails() {
-  let { bookId } = useParams();
-
+  const { bookId } = useParams();
   const navigate = useNavigate();
 
-  let [singleBook, setsingleBook] = useState(null);
+  const [singleBook, setSingleBook] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     async function fetchBookDetails() {
-      const response = await fetch(
-        `https://novelatticserver.onrender.com/novels/${bookId}`
-      );
+      try {
+        const response = await fetch(
+          `https://novelatticserver.onrender.com/novels/${bookId}`
+        );
+        if (!response.ok) throw new Error("Failed to fetch book details");
 
-      if (!response.ok) {
-        throw new Error("Failed to fetch book details");
+        const bookData = await response.json();
+        setSingleBook(bookData[0]);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
       }
-
-      const bookData = await response.json();
-      setsingleBook(bookData[0]);
     }
+
     fetchBookDetails();
   }, [bookId]);
 
@@ -36,17 +40,17 @@ export default function BookDetails() {
     );
     if (response.ok) {
       alert("Novel deleted successfully");
-      navigate("/book"); // ✅ Redirect
+      navigate("/book");
     } else {
       alert("Failed to delete novel");
     }
   }
 
-  console.log("Book ID from URL:", bookId);
-  console.log(singleBook);
   return (
     <>
-      {singleBook ? (
+      {isLoading ? (
+        <div>Loading book...</div>
+      ) : singleBook ? (
         <article className="book-container">
           <aside>
             <img src={singleBook.src} alt={`Cover of ${singleBook.title}`} />
@@ -57,6 +61,11 @@ export default function BookDetails() {
               <strong>Author:</strong> {singleBook.author}
             </h1>
             <p>{singleBook.synopsis}</p>
+
+            <Link to={`/update/${singleBook.id}`}>
+              <button>Edit</button>
+            </Link>
+
             <button onClick={() => handleDelete(singleBook.id)}>Delete</button>
           </div>
         </article>
@@ -68,11 +77,9 @@ export default function BookDetails() {
         <Link to="/">
           <button>About</button>
         </Link>
-
         <Link to="/book">
           <button>Books</button>
         </Link>
-
         <Link to="/contact">
           <button>Contact</button>
         </Link>

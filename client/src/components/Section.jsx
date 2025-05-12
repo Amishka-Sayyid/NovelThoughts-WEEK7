@@ -6,6 +6,7 @@ import About from "./About";
 import Books from "./Books";
 import Contact from "./Contact";
 import Add from "./Add";
+import Update from "./Update";
 export default function Section() {
   return (
     <>
@@ -42,7 +43,7 @@ export default function Section() {
             after i swiched the route and linked it here instead of allbooks the page rendered the contents i saved
              */}
             <Route path="/book/:bookId" element={<BookDetails />} />
-
+            <Route path="/update/:bookId" element={<Update />} />
             <Route path="/add" element={<Add />} />
           </Routes>
         </div>
