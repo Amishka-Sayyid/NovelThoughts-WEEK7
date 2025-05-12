@@ -12,7 +12,7 @@ export default function Books() {
             <Route path="/" element={<AllBooks />} />
           </Routes>
 
-          <Comments />
+          {/* <Comments /> */}
         </div>
         <div className="BookNavLinks">
           <Link to="/">

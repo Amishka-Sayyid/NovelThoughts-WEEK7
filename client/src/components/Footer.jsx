@@ -11,7 +11,10 @@ export default function Footer() {
           <a href="https://github.com/Amishka-Sayyid" target="_blank">
             <i className="fa-brands fa-github"></i>
           </a>
-          <a href="" target="_blank">
+          <a
+            href="https://www.linkedin.com/in/amina-ibrahim-78944623b/"
+            target="_blank"
+          >
             <i className="fa-brands fa-linkedin"></i>
           </a>
         </div>

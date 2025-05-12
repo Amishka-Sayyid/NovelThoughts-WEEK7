@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import "./BookDetails.css";
 import { Link } from "react-router-dom";
 import "./Books.css";
-
 import { useEffect, useState } from "react";
 
 export default function BookDetails() {
@@ -25,41 +24,54 @@ export default function BookDetails() {
     fetchBookDetails();
   }, [bookId]);
 
+  async function handleDelete(id) {
+    const response = await fetch(
+      `https://novelatticserver.onrender.com/delete-book/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
+    if (response.ok) {
+      setbooks(books.filter((book) => book.id !== id));
+      alert("novel deleted successfully");
+    } else {
+      alert("Failed to delete novel");
+    }
+  }
   console.log("Book ID from URL:", bookId);
   console.log(singleBook);
   return (
     <>
-      <div className="bookdetailpage">
-        <h1>Hello suprise!!!</h1>
-
-        <h1>Book Details of book Id: {bookId}</h1>
-        <br />
-        {singleBook ? (
+      {singleBook ? (
+        <article className="book-container">
+          <aside>
+            <img src={singleBook.src} alt={`Cover of ${singleBook.title}`} />
+          </aside>
           <div>
-            <h5>{singleBook.title}</h5>
-            <br />
+            <h1>{singleBook.title}</h1>
+            <h1>
+              <strong>Author:</strong> {singleBook.author}
+            </h1>
             <p>{singleBook.synopsis}</p>
-            <br />
-            <p>Author: {singleBook.author}</p>
-            <img src={singleBook.src} alt={singleBook.title} />
+            <button onClick={() => handleDelete(singleBook.id)}>Delete</button>
           </div>
-        ) : (
-          <div>No book data found!</div>
-        )}
+        </article>
+      ) : (
+        <div>No book data found!</div>
+      )}
 
-        <div className="BookNavLinks">
-          <Link to="/">
-            <button>About</button>
-          </Link>
+      <div className="BookNavLinks">
+        <Link to="/">
+          <button>About</button>
+        </Link>
 
-          <Link to="/book">
-            <button>Books</button>
-          </Link>
+        <Link to="/book">
+          <button>Books</button>
+        </Link>
 
-          <Link to="/contact">
-            <button>Contact</button>
-          </Link>
-        </div>
+        <Link to="/contact">
+          <button>Contact</button>
+        </Link>
       </div>
     </>
   );

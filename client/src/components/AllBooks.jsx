@@ -50,20 +50,6 @@ export default function AllBooks() {
     fetchData();
   }, []);
 
-  async function handleDelete(id) {
-    const response = await fetch(
-      `https://novelatticserver.onrender.com/delete-book/${id}`,
-      {
-        method: "DELETE",
-      }
-    );
-    if (response.ok) {
-      setbooks(books.filter((book) => book.id !== id));
-      alert("novel deleted successfully");
-    } else {
-      alert("Failed to delete novel");
-    }
-  }
   return (
     <>
       <section className="section">
@@ -135,8 +121,6 @@ export default function AllBooks() {
                   </Link>
 
                   <h5>book Id:{book.id} </h5>
-
-                  <button onClick={() => handleDelete(book.id)}>Delete</button>
                 </div>
               ))
             )}
