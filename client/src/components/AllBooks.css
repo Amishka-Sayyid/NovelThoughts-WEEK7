@@ -1,0 +1,73 @@
+/* General styles for AllBooks */
+.Allbooks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.singleBook {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.singleBook:hover {
+  transform: scale(1.05);
+}
+
+.singleBook img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 2px solid #ddd;
+}
+
+.singleBook h2 {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 10px;
+  color: #333;
+  text-align: center;
+}
+
+.singleBook h5 {
+  font-size: 14px;
+  color: #888;
+  margin: 10px;
+  text-align: center;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .Allbooks {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    padding: 15px;
+  }
+
+  .singleBook h2 {
+    font-size: 20px;
+  }
+
+  .singleBook h5 {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Allbooks {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .singleBook h2 {
+    font-size: 18px;
+  }
+
+  .singleBook h5 {
+    font-size: 12px;
+  }
+}
